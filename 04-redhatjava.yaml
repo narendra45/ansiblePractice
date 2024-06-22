@@ -1,0 +1,41 @@
+---
+- name: Install Java and Jenkins
+  hosts: web
+  become: yes  # This allows Ansible to escalate privileges (sudo)
+
+  tasks:
+    - name: Install Java OpenJDK 17
+      package:
+        name: java-17-openjdk-devel
+        state: present
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'  # Adjust this condition based on your distribution
+
+    - name: Install Java OpenJDK 17 for Fedora
+      package:
+        name: java-17-openjdk-devel
+        state: present
+      when: ansible_distribution == 'Fedora'
+
+    - name: Add Jenkins repository key
+      rpm_key:
+        key: https://pkg.jenkins.io/redhat/jenkins.io.key
+        state: present
+
+    - name: Add Jenkins repository
+      yum_repository:
+        name: jenkins
+        description: Jenkins Official Repository
+        baseurl: https://pkg.jenkins.io/redhat/
+        gpgcheck: yes
+        state: present
+
+    - name: Install Jenkins
+      package:
+        name: jenkins
+        state: present
+
+    - name: Start Jenkins service
+      service:
+        name: jenkins
+        state: started
+        enabled: yes
