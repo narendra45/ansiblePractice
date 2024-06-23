@@ -16,7 +16,9 @@
       msg: "Hello, Good {{WISHES}}"
 
 #1. args
-#2.tasks
+#2. tasks
 #3. variable file
 #4. prompt
 #5. play
+#6. Inventory
+#7. Role level
