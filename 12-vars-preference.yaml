@@ -1,7 +1,7 @@
 - name: variable preference
   hosts: localhost
-  vars_files:
-    - vars.yaml
+  # vars_files:
+  #   - vars.yaml
   vars_prompt:
     - name: WISHES
       prompt: "Please enter wishes"
@@ -17,3 +17,4 @@
 
 #1. args
 #2.tasks
+#3. variable file
