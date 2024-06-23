@@ -6,8 +6,8 @@
   #   - name: WISHES
   #     prompt: "Please enter wishes"
   #     private: false
-  vars:
-    WISHES: "Morning from PLAY variable"
+  # vars:
+  #   WISHES: "Morning from PLAY variable"
   tasks:
   - name: check preference
     # vars:
@@ -19,3 +19,4 @@
 #2.tasks
 #3. variable file
 #4. prompt
+#5. play
